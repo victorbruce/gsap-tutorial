@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  color: #212121;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.highlight {
+  color: purple;
+}
+
+#header {
+  display: flex;
+  padding: 5em 5em;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#header h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+
+#header p {
+  color: #777;
+  font-style: italic;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+#header button {
+  padding: 1em 1.2em;
+  border: none;
+  box-shadow: 3px 5px 5px #eee;
+  background-color: purple;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.header-image p {
+  text-align: center;
+}
