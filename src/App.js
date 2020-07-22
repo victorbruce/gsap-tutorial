@@ -8,10 +8,10 @@ import logo from "./logo.svg";
 
 function App() {
   const vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-  
+  document.documentElement.style.setProperty("--vh", `${vh}px`);
+
   useEffect(() => {
-    gsap.from(".App__description", 1, { opacity: 0, y: 40 });
+    gsap.from(".App__description > small", 1, { opacity: 0, y: 50 });
 
     gsap.from(".App__image", 1, { opacity: 0, scale: 0.8, delay: 0.8 });
   }, []);
