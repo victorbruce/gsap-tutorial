@@ -1,75 +1,30 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import People from "./assets/images/people.jpg";
+import CSSRulePlugin from "gsap/CSSRulePlugin";
+import { TimelineLite, Power2 } from "gsap";
 
-// 3rd-party libraries
-import { TweenLite, Power3 } from "gsap";
-import { TweenMax } from "gsap/gsap-core";
+const App = () => {
+  let container = useRef(null);
+  let image = useRef(null);
+  let imageReveal = CSSRulePlugin.getRule(".App__imageContainer:after");
 
-function App() {
-  let app = useRef(null);
-  let circleRed = useRef(null);
-  let circleYellow = useRef(null);
-  let circleGreen = useRef(null);
-
-  const [scale, setScale] = useState(false);
+  const tl = new TimelineLite();
 
   useEffect(() => {
-    TweenLite.to(app, 0, { css: { visibility: "visible" } });
-    TweenLite.from(circleRed, 0.8, { opacity: 0, x: 40, ease: Power3.easeOut });
-    TweenLite.from(circleYellow, 0.8, {
-      opacity: 0,
-      x: 40,
-      ease: Power3.easeOut,
-      delay: 0.2,
-    });
-    TweenLite.from(circleGreen, 0.8, {
-      opacity: 0,
-      x: 40,
-      ease: Power3.easeOut,
-      delay: 0.2,
-    });
-  }, []);
-
-  const handleScale = () => {
-    if (scale) {
-      TweenMax.to(circleYellow, .8, {
-        width: 200,
-        height: 200,
-        ease: Power3.easeOut,
-      });
-      setScale(false);
-    } else {
-      TweenMax.to(circleYellow, 1, {
-        width: 75,
-        height: 75,
-        ease: Power3.easeOut,
-      });
-      setScale(true);
-    }
-  };
-
-  // const handleDecrease = () => {
-  //   TweenMax.to(circleYellow, 1, { scale: 1 });
-  //   setScale(false);
-  // }
+    tl.to(container, 0, { css: { visibility: "visible" } })
+      .to(imageReveal, 1.4, { width: "0%", ease: Power2.easeInOut })
+      .from(image, 1.4, { scale: 1.6, delay: -1.4 });
+  }, [tl, imageReveal, image]);
 
   return (
-    <div className="App" ref={(el) => (app = el)}>
-      <h1>Gsap TweenMax</h1>
-
-      <div className="Circle__container">
-        <div className="Circle__color red" ref={(el) => (circleRed = el)}></div>
-        <div
-          className="Circle__color yellow"
-          ref={(el) => (circleYellow = el)}
-          onClick={handleScale}
-        ></div>
-        <div
-          className="Circle__color green"
-          ref={(el) => (circleGreen = el)}
-        ></div>
+    <div className="App">
+      <div className="App__inner" ref={(el) => (container = el)}>
+        <div className="App__imageContainer">
+          <img src={People} alt="people" ref={(el) => (image = el)} />
+        </div>
       </div>
     </div>
   );
-}
+};
 
 export default App;
