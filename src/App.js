@@ -1,7 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // 3rd-party libraries
-import { TweenMax, Power3 } from "gsap";
+import { TweenLite, Power3 } from "gsap";
+import { TweenMax } from "gsap/gsap-core";
 
 function App() {
   let app = useRef(null);
@@ -9,22 +10,48 @@ function App() {
   let circleYellow = useRef(null);
   let circleGreen = useRef(null);
 
+  const [scale, setScale] = useState(false);
+
   useEffect(() => {
-    TweenMax.to(app, 0, { css: { visibility: "visible" } });
-    TweenMax.from(circleRed, 0.8, { opacity: 0, x: 40, ease: Power3.easeOut });
-    TweenMax.from(circleYellow, 0.8, {
+    TweenLite.to(app, 0, { css: { visibility: "visible" } });
+    TweenLite.from(circleRed, 0.8, { opacity: 0, x: 40, ease: Power3.easeOut });
+    TweenLite.from(circleYellow, 0.8, {
       opacity: 0,
-      x: 60,
+      x: 40,
       ease: Power3.easeOut,
       delay: 0.2,
     });
-    TweenMax.from(circleGreen, 0.8, {
+    TweenLite.from(circleGreen, 0.8, {
       opacity: 0,
-      x: 80,
+      x: 40,
       ease: Power3.easeOut,
       delay: 0.2,
     });
   }, []);
+
+  const handleScale = () => {
+    if (scale) {
+      TweenMax.to(circleYellow, .8, {
+        width: 200,
+        height: 200,
+        ease: Power3.easeOut,
+      });
+      setScale(false);
+    } else {
+      TweenMax.to(circleYellow, 1, {
+        width: 75,
+        height: 75,
+        ease: Power3.easeOut,
+      });
+      setScale(true);
+    }
+  };
+
+  // const handleDecrease = () => {
+  //   TweenMax.to(circleYellow, 1, { scale: 1 });
+  //   setScale(false);
+  // }
+
   return (
     <div className="App" ref={(el) => (app = el)}>
       <h1>Gsap TweenMax</h1>
@@ -34,6 +61,7 @@ function App() {
         <div
           className="Circle__color yellow"
           ref={(el) => (circleYellow = el)}
+          onClick={handleScale}
         ></div>
         <div
           className="Circle__color green"
