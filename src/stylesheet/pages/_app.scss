@@ -1,183 +1,42 @@
+$appText: #1b2d45;
+$appHeader: #00214d;
+$backgroundLight: #f2f4f6;
+
 .App {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &:after {
-    content: "";
-    position: absolute;
-    background: #f2f2f6;
-    width: 600px;
-    height: 350px;
-    right: 0;
-    bottom: 0;
-    opacity: 0.8;
-    z-index: -30;
+  &__inner {
+    max-width: 940px;
+    margin: auto;
   }
 
-  &__container {
-    width: 1280px;
-    min-width: 1280px;
-    height: 600px;
-    position: relative;
-  }
+  &__about {
+    color: $appText;
+    background: $backgroundLight;
+    padding: 30px;
 
-  &__arrows {
-    position: absolute;
-    display: flex;
-    width: 100px;
-    align-items: center;
-    justify-content: center;
-    bottom: 0;
-    top: 0;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: 0.3s ease-in-out;
-
-    &:hover {
-      box-shadow: 0px 0px 30px rgba(0, 0, 80, 0.085);
+    & h2 {
+      color:$appHeader;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
-  }
-
-  &__leftArrow {
-    left: 0;
-  }
-
-  &__rightArrow {
-    right: 0;
   }
 
   &__testimonials {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
-
-    &__image {
-      width: 500px;
-      height: 600px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      &:after {
-        content: "";
-        position: absolute;
-        width: 200px;
-        height: 200px;
-        background: #3f56ea;
-        left: 150px;
-        top: 0;
-        border-radius: 100%;
-        z-index: -10;
-      }
-      & ul {
-        display: flex;
-        position: absolute;
-        overflow: hidden;
-        width: 340px;
-        height: 460px;
-        box-shadow: 0px 0px 40px rgba(0, 0, 10, 0.25);
-        li {
-          width: 340px;
-          height: 460px;
-
-          img {
-            width: 340px;
-            height: 460px;
-            object-fit: contain;
-          }
-        }
-      }
+    background: #fde24f;
+    color:$appText;
+    padding: 30px;
+    opacity: 0;
+    & h2 {
+      margin: 20px 0px;
     }
+  }
 
-    &__content {
-      width: 500px;
-      height: 600px;
-      display: flex;
-      align-items: center;
+  &__blog {
+    background: #1b2d45;
+    padding: 30px;
+    color: #fde24f;
 
-      & ul {
-        position: absolute;
-        overflow: hidden;
-        width: 500px;
-        height: 400px;
-
-        li {
-          width: 500px;
-          height: 400px;
-          color: #2c2c2c;
-          display: flex;
-          align-items: center;
-          position: absolute;
-          opacity: 0;
-
-          &:nth-child(1) {
-            &:after {
-              content: "";
-              position: absolute;
-              width: 310px;
-              height: 12px;
-              background: #3c3c3c;
-              opacity: 0.2;
-              left: 184px;
-              top: 166px;
-            }
-          }
-
-          &:nth-child(2) {
-            &:after {
-              content: "";
-              position: absolute;
-              width: 130px;
-              height: 12px;
-              background: #3c3c3c;
-              opacity: 0.2;
-              left: 54px;
-              top: 147px;
-            }
-          }
-
-          &:nth-child(3) {
-            &:after {
-              content: "";
-              position: absolute;
-              width: 240px;
-              height: 12px;
-              background: #3c3c3c;
-              opacity: 0.2;
-              left: 140px;
-              top: 165px;
-            }
-          }
-        }
-      }
-
-      &__inner {
-        width: 500px;
-      }
-    }
-
-    &__quote {
-      font-size: 26px;
-      letter-spacing: 0.88px;
-      line-height: 40px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    &__name {
-      font-size: 18px;
-      letter-spacing: 0.88px;
-      line-height: 28px;
-      font-weight: 600;
-    }
-
-    &__title {
-      font-size: 18px;
-      letter-spacing: 0.88px;
-      line-height: 28px;
+    & h2 {
+      margin: 20px 0px;
     }
   }
 }
