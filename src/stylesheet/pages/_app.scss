@@ -2,41 +2,60 @@ $appText: #1b2d45;
 $appHeader: #00214d;
 $backgroundLight: #f2f4f6;
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  line-height: 28px;
+}
+
+h2 {
+  margin-bottom: 30px;
+}
+
 .App {
-  &__inner {
+  margin: 0;
+  padding: 0;
+
+  &__content {
     max-width: 940px;
+    padding: 30px;
+    height: 100vh;
     margin: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   &__about {
     color: $appText;
     background: $backgroundLight;
-    padding: 30px;
 
-    & h2 {
-      color:$appHeader;
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
   }
 
   &__testimonials {
     background: #fde24f;
-    color:$appText;
-    padding: 30px;
-    opacity: 0;
-    & h2 {
-      margin: 20px 0px;
-    }
+    color: $appText;
   }
 
   &__blog {
     background: #1b2d45;
-    padding: 30px;
     color: #fde24f;
+  }
+}
 
-    & h2 {
-      margin: 20px 0px;
+
+@media (max-width: 500px) {
+  .App {
+    &__content {
+      box-sizing: border-box;
+      padding-top: 100px;
+      height: 100%;
+      padding-bottom: 100px;
     }
   }
 }
